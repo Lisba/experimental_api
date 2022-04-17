@@ -1,0 +1,15 @@
+{
+  "name": "experimentalApi",
+  "version": "1.0.0",
+  "description": "experimental node.js api with TS",
+  "main": "index.js",
+  "author": "Lisbaldy Ojeda",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^17.0.24",
+    "typescript": "^4.6.3"
+  },
+  "dependencies": {
+    "express": "^4.17.3"
+  }
+}
