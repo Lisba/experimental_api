@@ -4,7 +4,7 @@ Experimental API with Node.js, Typescript, Express, mongoDB, PostgreSQL, Redis, 
 
 ## In order to start the server:
 
-1. Run ```yarn``` to install dependencies.
-1. Run ```npx tsc``` to generate de js code.
-1. Run ```nodemon ./Dist/index.js``` to start the server.
-1. Running ```npx tsc --watch``` is recommended to transpile new changes in the code automatically.
+1. Run `yarn` to install dependencies.
+1. Run `yarn build` to generate de js code.
+1. Run `yarn start` to start the server.
+1. Running `yarn dev` is recommended to transpile new changes in the code automatically.
