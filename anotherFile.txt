@@ -1,0 +1,7 @@
+bafe339 🔧 Nodemon configured to use babel in the REPL and replace ts-node-dev and module-alias
+381fea3 🔧 Setup for babel's tranpilation with path alias plugin, tsc for declaration files generation only. 🔧 Watch mode config with path alias support on development.
+e879a6f :memo: Documentation updated
+d8a1058 Merge remote-tracking branch 'origin/main'
+8c436e1 Initial commit
+e67405c 🔧 Project config completed
+
