@@ -1,19 +1,36 @@
 import express from 'express';
 const router = express.Router();
+import { userService } from '@services';
 
 router.get('/', (_req, res) => {
-  res.send('get user home!');
-  console.log('get user home!');
+  const response = userService.getAll();
+  res.json(response);
 });
 
-router.post('/', (_req, res) => {
-  res.send('post user home!');
-  console.log('post user home!');
+router.post('/', async (req, res) => {
+  if (!req.body) {
+    res.status(400).send('Bad Request');
+    return;
+  }
+  try {
+    const response = await userService.create(req.body);
+    res.json(response);
+  } catch (error) {
+    res.status(500).send(`Something went wrong, error ${error}`);
+  }
 });
 
-router.get('/:id', (_req, res) => {
-  res.send('get user/:id');
-  console.log('get user/:id');
+router.get('/:id', (req, res) => {
+  try {
+    const response = userService.getById(JSON.parse(req.params.id));
+    if (!response || Object.keys(response as string[]).length === 0) {
+      res.status(404).send('Not Found');
+    }
+    console.log('response from route: ', response);
+    res.json(response);
+  } catch (error) {
+    res.status(404).send();
+  }
 });
 
 export default router;

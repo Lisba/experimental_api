@@ -8,5 +8,5 @@ try {
     console.log('File removed successfully!');
   }
 } catch (error) {
-  console.error('An error has been occurred!', error);
+  console.error('An error has been occurred!!', error);
 }

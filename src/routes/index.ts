@@ -1,11 +1,11 @@
-import homeRouter from './home';
 import userRouter from './user';
 import productRouter from './product';
+import purchaseRouter from './purchase';
 
 const routerApi = (app) => {
-  app.use('/', homeRouter);
   app.use('/user', userRouter);
   app.use('/product', productRouter);
+  app.use('/purchase', purchaseRouter);
 };
 
 export default routerApi;

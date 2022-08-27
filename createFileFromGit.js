@@ -12,6 +12,6 @@ const promisifiedExec = require('./promisifiedExec');
     console.log('data1: ', data1);
     console.log('data2: ', data2);
   } catch (error) {
-    console.error('An error has been occurred!', error);
+    console.error('An error has been occurred!!', error);
   }
 })();
