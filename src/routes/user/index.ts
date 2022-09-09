@@ -1,6 +1,7 @@
 import express from 'express';
 const router = express.Router();
 import { userService } from '@services';
+import { CustomError } from '@helpers';
 
 router.get('/', (_req, res) => {
   const response = userService.getAll();
@@ -23,13 +24,9 @@ router.post('/', async (req, res) => {
 router.get('/:id', (req, res) => {
   try {
     const response = userService.getById(JSON.parse(req.params.id));
-    if (!response || Object.keys(response as string[]).length === 0) {
-      res.status(404).send('Not Found');
-    }
-    console.log('response from route: ', response);
     res.json(response);
-  } catch (error) {
-    res.status(404).send();
+  } catch (err) {
+    res.status((err as CustomError).statusCode).json(err as CustomError);
   }
 });
 

@@ -1,5 +1,6 @@
 import bcrypt from 'bcrypt';
 import { database } from '@libs';
+import { CustomError } from '@helpers';
 
 export const create = async (user) => {
   try {
@@ -10,7 +11,7 @@ export const create = async (user) => {
     const { password, ...response } = newUser;
     return response;
   } catch (error) {
-    return error;
+    throw error;
   }
 };
 
@@ -23,7 +24,7 @@ export const getAll = () => {
     });
     return response;
   } catch (error) {
-    return error;
+    throw error;
   }
 };
 
@@ -31,12 +32,11 @@ export const getById = (id: number) => {
   try {
     const userFound = database.users.find((item) => item.id === id);
     if (!userFound) {
-      new Error('not found');
+      throw new CustomError(404, 'User not found', 'Not Found');
     }
-    const { password, ...user } = userFound;
-    const response = user;
+    let { password, ...response } = userFound;
     return response;
   } catch (error) {
-    return error;
+    throw error;
   }
 };

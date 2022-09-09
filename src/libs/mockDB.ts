@@ -1,10 +1,10 @@
-type database = {
+type db = {
   users: user[];
   products: products[];
   purchases: purchases[];
 };
 
-type user = {
+export type user = {
   id: number;
   name: string;
   email: string;
@@ -24,7 +24,7 @@ type purchases = {
   date: string;
 };
 
-const database: database = {
+const database: db = {
   users: [
     { id: 1, name: 'Lisbaldy', email: 'lisbaldy@mail.com', password: '123 .34' },
     { id: 2, name: 'Jesus', email: 'jesus@mail.com', password: '345 .34' },
